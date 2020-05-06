@@ -1,11 +1,11 @@
 <?php
 /**
-* Plugin Name: Entermedia Embed
-* Plugin URI: https://www.entermediadb.org/
+* Plugin Name: EnterMedia Image & Video Inserter
+* Plugin URI: https://entermediadb.org
 * Description: EnterMedia Inc.
-* Version: 1.1
-* Author: Cristobal Mejia for EnterMediaDb. Inc.
-* Author URI: https://www.entermediadb.org/
+* Version: 1.3
+* Author: EnterMediaDb. Inc.
+* Author URI: https://entermediadb.org
 **/
 
 /**
@@ -43,7 +43,7 @@ add_action('update_option', function( $option_name, $old_value, $value ) {
  * @since 1.0
 */
 function emembed_to_menu() {
-	add_submenu_page ( "options-general.php", "Entermedia Embed Plugin", "Entermedia Embed", "manage_options", "emembed_settings", "emembed_mainpage" );
+	add_submenu_page ( "options-general.php", "EnterMedia Image & Video Inserter", "EntermediaDb", "manage_options", "emembed_settings", "emembed_mainpage" );
 }
 add_action ( "admin_menu", "emembed_to_menu" );
  
@@ -58,9 +58,8 @@ add_action ( "admin_menu", "emembed_to_menu" );
 function emembed_mainpage() {
 	?>
 <div class="wrap">
-	<h1>
-		EnterMediaDB Embed Plugin
-	</h1>
+	<h1>EnterMedia Image & Video Inserter</h1>
+    <p>Visit <a href="https://entermediadb.org">EnterMediadb.org</a> for documentation.</p>
  
 	<form method="post" action="options.php">
             <?php
@@ -81,7 +80,7 @@ function emembed_mainpage() {
  */
 function emembed_settings() {
 	add_settings_section ( "emembed_settings_config", "", null, "emembed_settings" );
-	add_settings_field ( "emembed_settings_text", "EnterMedia URL", "emembed_settings_options", "emembed_settings", "emembed_settings_config" );
+	add_settings_field ( "emembed_settings_text", "EnterMedia URL & Catalog", "emembed_settings_options", "emembed_settings", "emembed_settings_config" );
 	register_setting ( "emembed_settings_config", "emembed_settings_url" );
 	register_setting ( "emembed_settings_config", "emembed_settings_catalog" );
 }
